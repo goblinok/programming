@@ -50,8 +50,8 @@ $ go install –v ./...
 | data path | D:\Ethereum\storage | 이더리움 데이터 파일 위치 (Main, Dev, Private 등으로 나누어 관리) |
 
 
-NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
-[https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.
+*NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
+[https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.*
 
 
 ## 접속 네트워크 선택
@@ -110,8 +110,8 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
   "timestamp"  : "0x00"
 }
 ```
-NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
-이는 아직 생성된 계정이 없기 때문입니다. (무시하고 계속 진행합니다.)
+*NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
+이는 아직 생성된 계정이 없기 때문입니다. (무시하고 계속 진행합니다.)*
 
 
 **2단계 : 이더리움을 구동하여 계정 생성** 
@@ -134,7 +134,7 @@ Repeat passphrase :
 "0x0000000000000000000000000000000000000002"
 ```
 
-NOTICE : 생성된 계정은 D:\Ethereum\storage\Private\keystore 아래에 두개의 파일로 존재하게 됩니다.
+*NOTICE : 생성된 계정은 D:\Ethereum\storage\Private\keystore 아래에 두개의 파일로 존재하게 됩니다.*
 
 
 **3단계 : 기존 생성된 사설 블록 삭제**
@@ -142,7 +142,7 @@ NOTICE : 생성된 계정은 D:\Ethereum\storage\Private\keystore 아래에 두
 일단 2개의 계정이 정상적으로 생성되면, keystore 폴더를 제외한 모든 폴더와 파일을 삭제 합니다. 
 D:\Ethereum\storage\Private\geth 폴더와 D:\Ethereum\storage\Private\history 파일을 삭제합니다.
 
-주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우면 안됩니다. 
+*주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우면 안됩니다.*
 
 
 **4단계 : 잔액이 있는 계정으로 블록을 재생성** 
@@ -183,7 +183,7 @@ $ geth --datadir "D:\Ethereum\storage\Private" console
  > eth.coinbase
 "0x0000000000000000000000000000000000000001"
 ```
-NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다. 
+*NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다.*
 
 
 ## 사설 네트워크로 멀티노드 구성 
@@ -192,29 +192,32 @@ NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으�
 
 ![screenshot](https://raw.githubusercontent.com/SeoulEM/programming/master/multinode_example.png) 
 
-> NODE1
-기존 genesis로 생성했던 계정을 그대로 마이너 노드 옵션을 적용하여 실행합니다. 
+> **NODE1 (Miner)** : 
+기존 genesis로 생성했던 계정을 그대로 마이너 노드 옵션을 적용하여 실행합니다.
+
 `
 $ geth --datadir "D:\Ethereum\storage\Private" --mine --minerthreads=1 
 `
 + **--mine** : 마이너를 동작시킵니다. 
 + **minerthreads=1** : 마이너의 코어수 입니다.
-+ **TIP** : 일단 마이닝이 시작되면 DAG 기본 폴더인 %APPDATA%\Ethash 에 파일이 생성되는데, 
+*TIP : 일단 마이닝이 시작되면 DAG 기본 폴더인 %APPDATA%\Ethash 에 파일이 생성되는데, 
 시스템 디스크가 아닌 다른 하드디스크로 변경하기 위해 윈도우에서도 심볼릭 링크를 적용할 수 있다.
  (mklink /D C:\Users\user\AppData\Ethash D:\Ethereum\storage\Ethash)
-      `
-NOTICE : 마이너는 --mine --minerthreads=1 geth CLO 옵션 대신 geth 콘솔에서 mine.start(1)라고 입력해도 됩니다.
---etherbase는 별도 추가하지 않으면 coinbase인 최초 생성 계정으로 설정됩니다.
+*NOTICE : 마이너는 --mine --minerthreads=1 geth CLO 옵션 대신 geth 콘솔에서 mine.start(1)라고 입력해도 됩니다.
+--etherbase는 별도 추가하지 않으면 coinbase인 최초 생성 계정으로 설정됩니다.*
 
 
-> NODE2
+> **NODE2** : datadir, rpc port, geth 포트를 변경하여 실행합니다.
+
 `
 $ geth --datadir "D:\Ethereum\temp\TestChain2" --rpc --rpcport "8542"  --port 3032 --nodiscover --ipcdisable  console
 `
 + **--ipdisable** : 한대의 PC에서 테스트 할경우, geth는 IPC-RPC가 기본 enable 상태이므로 disable 처리해야 합니다. 
                     HTTP-RPC와 WS-RPC는 기본 disable입니다.
 
-> NODE3
+> **NODE3** : datadir, rpc port, geth 포트를 변경하여 실행합니다.
+
 `
 $ geth --datadir "D:\Ethereum\temp\TestChain3" --rpc --rpcport "8543"  --port 3033 --nodiscover --ipcdisable  console
 `
+*NOTICE : 한대의 PC 아닌 경우.. (업데이트중)*
