@@ -40,9 +40,9 @@ $ go install –v ./...
 ```
 
 첨고 : 다음과 같이 소스와 컴파일된 바이너리와 데이터 경로를 설정하면 관리가 용이합니다.
-| 경로 |  예시 |  설명 |
-| ------------- |  ------------- |  ------------- |
-| %USERPROFILE% | D:\Ethereum |  | 
+| 경로 |  예시 |  설명  |
+| ------------- | ------------- | ------------- |
+| %USERPROFILE% | D:\Ethereum |    | 
 | source path | D:\Ethereum\src | git에서 받은 소스 위치 | 
 | bin path | D:\Ethereum\bin |컴파일된 샐행 파일 (geth, bootstrap ...)  |
 | data path | D:\Ethereum\storage | 데이터 파일 (Main, Dev, Private 등으로 나누어 관리) |
