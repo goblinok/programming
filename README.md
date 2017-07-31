@@ -142,7 +142,7 @@ Repeat passphrase :
 일단 2개의 계정이 정상적으로 생성되면, keystore 폴더를 제외한 모든 폴더와 파일을 삭제 합니다. 
 D:\Ethereum\storage\Private\geth 폴더와 D:\Ethereum\storage\Private\history 파일을 삭제합니다.
 
-*######주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우면 안됩니다.*
+*주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우면 안됩니다.*
 
 
 **4단계 : 잔액이 있는 계정으로 블록을 재생성** 
