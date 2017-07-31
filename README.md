@@ -6,11 +6,13 @@
 
 ## 1. 실행 환경 구축
 [인스톨 가이드] (https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+
 [인스톨없이 바로 설치] (https://geth.ethereum.org/downloads/)
 
 
 ## 2. 초기 접속 네트워크 선택
 [geth 실행]  (https://github.com/ethereum/go-ethereum#running-geth)
+
 [geth 커맨드 명령어] (https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ### Main Network 접속
