@@ -56,6 +56,7 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 ## 접속 네트워크 선택
 
 이더리움은 메인,테스트,사설망을 선택하여 접속할 수 있습니다.
+
 개발자용 테스트를 위해서 사설망 3) 번으로  바로 이동합니다.
 
 #### 1) Main Network 접속
@@ -87,7 +88,6 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 
 > D:\Ethereum\storage\Private\genesis.json 예시
 ```
-
 {
   "config": {
         "chainId": 0,
@@ -106,7 +106,6 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
   "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestamp"  : "0x00"
 }
-
 ```
 NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
 이는 아직 생성된 계정 생성 없기 때문입니다(아래 계속 진행). 
