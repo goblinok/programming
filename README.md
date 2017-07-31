@@ -45,9 +45,9 @@ $ go install –v ./...
 | 경로 |  예시  |  설명  |
 | ------------- | ------------- | ------------- |
 | %USERPROFILE% | D:\Ethereum |    | 
-| %SRC_PATH% | D:\Ethereum\src | git에서 받은 소스 위치 | 
-| %BIN_PATH% | D:\Ethereum\bin | 컴파일 후, 실행 파일 위치 (geth, bootstrap ...)  |
-| %DATA_PATH% | D:\Ethereum\storage | 이더리움 데이터 파일 위치 (Main, Dev, Private 등으로 나누어 관리) |
+| source path | D:\Ethereum\src | git에서 받은 소스 위치 | 
+| bin path | D:\Ethereum\bin | 컴파일 후, 실행 파일 위치 (geth, bootstrap ...)  |
+| data path | D:\Ethereum\storage | 이더리움 데이터 파일 위치 (Main, Dev, Private 등으로 나누어 관리) |
 
 
 NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
@@ -188,4 +188,33 @@ NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으�
 
 ## 사설 네트워크로 멀티노드 구성 
 
+한대의 PC에서 3개의 노드를 동시에 띄울 경우, 다음과 같이 테스트 할 수 있습니다. 
 
+![screenshot](https://raw.githubusercontent.com/SeoulEM/programming/master/multinode_example.png) 
+
+> NODE1
+기존 genesis로 생성했던 계정을 그대로 마이너 노드 옵션을 적용하여 실행합니다. 
+`
+$ geth --datadir "D:\Ethereum\storage\Private" --mine --minerthreads=1 
+`
++ **--mine** : 마이너를 동작시킵니다. 
++ **minerthreads=1** : 마이너의 코어수 입니다.
++ **TIP** : 일단 마이닝이 시작되면 DAG 기본 폴더인 %APPDATA%\Ethash 에 파일이 생성되는데, 
+시스템 디스크가 아닌 다른 하드디스크로 변경하기 위해 윈도우에서도 심볼릭 링크를 적용할 수 있다.
+ (mklink /D C:\Users\user\AppData\Ethash D:\Ethereum\storage\Ethash)
+      `
+NOTICE : 마이너는 --mine --minerthreads=1 geth CLO 옵션 대신 geth 콘솔에서 mine.start(1)라고 입력해도 됩니다.
+--etherbase는 별도 추가하지 않으면 coinbase인 최초 생성 계정으로 설정됩니다.
+
+
+> NODE2
+`
+$ geth --datadir "D:\Ethereum\temp\TestChain2" --rpc --rpcport "8542"  --port 3032 --nodiscover --ipcdisable  console
+`
++ **--ipdisable** : 한대의 PC에서 테스트 할경우, geth는 IPC-RPC가 기본 enable 상태이므로 disable 처리해야 합니다. 
+                    HTTP-RPC와 WS-RPC는 기본 disable입니다.
+
+> NODE3
+`
+$ geth --datadir "D:\Ethereum\temp\TestChain3" --rpc --rpcport "8543"  --port 3033 --nodiscover --ipcdisable  console
+`
