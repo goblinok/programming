@@ -108,13 +108,15 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 }
 ```
 NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
-이는 아직 생성된 계정 생성 없기 때문입니다(아래 계속 진행). 
+이는 아직 생성된 계정 생성 없기 때문입니다. (무시하고 계속 진행합니다.)
 
 
 **2단계 : 이더리움을 구동하여 계정 생성** 
 
 init는 console 명령과 함께 쓸 수 없으므로 genesis.json으로 생성한 노드에 접속하여
-계정을 두개 생성합니다. (console을 이미 사용중일 경우, 'attach'로 접속 가능 합니다.)
+계정을 두개 생성합니다. 
+
+(console을 이미 사용중일 경우, 'attach'로 접속 가능 합니다.)
 ```
 $ geth --datadir "D:\Ethereum\storage\Private" console
 
