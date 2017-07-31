@@ -21,7 +21,7 @@
 Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 네트워크중 하나를 선택할 수 있다.
 개발용 테스트 환경 구축을 위해 Private Network 구축을 위해서 3) 번으로 이동하자.
 
-##### 1) Main Network 접속
+#### 1) Main Network 접속
 `$ geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
 `
 
@@ -31,15 +31,17 @@ Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 �
 
 + **console** : Geth의 내장 된 대화식 JavaScript 콘솔을 시작합니다 (Geth의 자체 관리 API는 물론 모든 공식 web3 메소드를 호출 할 수있는 콘솔 부속 명령을 통해). 이것 역시 선택 사항이며 생략하면 geth attach로 이미 실행중인 Geth 인스턴스에 연결할 수 있습니다.
 
-
-##### 2) Test Network 접속
+#### 2) Test Network 접속
 `$ geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
 `
 
 + **--testnet** : 개발자를 위해 실제 돈을 들이지 않고  Ethereum Contract를 생성하고 테스트 해보고 싶다면 테스트 옵션으로 주 네트워크와 완전히 동등한 환경의 테스트 네트워크에 합류 가능합니다.
 
 
-##### 3) Private Network 접속
+#### 3) Private Network 접속
+
+**1단계: genesis파일을 이용하여 블록 생성**
+
 `$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
 `
 
@@ -69,13 +71,15 @@ Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 �
 }
 
 ```
-참고: 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 이는 아직 계정생성이 되어 있지 않기 때문인데, 일단 무시해도 됩니다. 
+NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
+이는 아직 생성된 계정 생성 없기 때문입니다(아래 계속 진행). 
 
 
-> init는 console 명령과 함께 쓸 수 없으므로 genesis.json으로 생성한 노드에 접속하여
+**2단계 : 이더리움을 구동하여 계정 생성 ** 
+
+init는 console 명령과 함께 쓸 수 없으므로 genesis.json으로 생성한 노드에 접속하여
 계정을 두개 생성합니다. (console을 이미 사용중일 경우, 'attach'로 접속 가능 합니다.)
 ```
-
 $ geth --datadir "D:\Ethereum\storage\Private" console
 
 > personal.newAccount()
@@ -89,13 +93,18 @@ Repeat passphrase :
 "0x0000000000000000000000000000000000000002"
 ```
 
+**3단계 : 기존 생성된 사설 블록 삭제 **
 
-> 일단 2개의 계정이 정상적으로 생성되면, 
-D:\Ethereum\storage\Private\geth 폴더와 D:\Ethereum\storage\Private\history 파일을 삭제하고, 
-genesis.json 파일에 생성된 2개의 계정에 잔액을 채워서 다시 init을 합니다.
-(D:\Ethereum\storage\Private\keystore 폴더는 지우지 않습니다.)
+일단 2개의 계정이 정상적으로 생성되면, keystore 폴더를 제외한 모든 폴더와 파일을 삭제 합니다. 
+D:\Ethereum\storage\Private\geth 폴더와 D:\Ethereum\storage\Private\history 파일을 삭제합니다.
+주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우지 않습니다.
 
-> D:\Ethereum\storage\Private\genesis.json 수정된 예시 (alloc 부분 변경)
+
+**4단계 : 잔액이 있는 계정으로 블록을 재생성 ** 
+
+genesis.json 파일에 alloc 부분을 다음과 같이 수정합니다.
+
+> D:\Ethereum\storage\Private\genesis.json 수정된 예시 *(alloc 부분 변경)*
 ```
 {
   "config": {
@@ -120,12 +129,17 @@ genesis.json 파일에 생성된 2개의 계정에 잔액을 채워서 다시 in
 }
 ```
 
+> 수정된 genesis.json으로 init을 재실행하여 계정과 잔액을 확인해 봅니다.
 ```
-$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
+$ geth --datadir "D:\Ethereum\storage\Private" init D:\Ethereum\storage\Private\genesis.json 
 $ geth --datadir "D:\Ethereum\storage\Private" console
  > eth.accounts()
+["0x0000000000000000000000000000000000000001", "0x0000000000000000000000000000000000000002"]
  > eth.coinbase
+"0x0000000000000000000000000000000000000001"
 ```
+NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다. 
+
 
 
 [geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
