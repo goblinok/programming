@@ -1,4 +1,4 @@
-이더리움 실행환경 구축 
+이더리움 실행환경 구축
 =============
 [공식 사이트](https://github.com/ethereum/go-ethereum)
 
@@ -45,9 +45,9 @@ $ go install –v ./...
 | 경로 |  예시  |  설명  |
 | ------------- | ------------- | ------------- |
 | %USERPROFILE% | D:\Ethereum |    | 
-| source path | D:\Ethereum\src | git에서 받은 소스 위치 | 
-| bin path | D:\Ethereum\bin |컴파일된 실행 파일 (geth, bootstrap ...)  |
-| data path | D:\Ethereum\storage | 데이터 파일 (Main, Dev, Private 등으로 나누어 관리) |
+| %SRC_PATH% | D:\Ethereum\src | git에서 받은 소스 위치 | 
+| %BIN_PATH% | D:\Ethereum\bin | 컴파일 후, 실행 파일 위치 (geth, bootstrap ...)  |
+| %DATA_PATH% | D:\Ethereum\storage | 이더리움 데이터 파일 위치 (Main, Dev, Private 등으로 나누어 관리) |
 
 
 NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
@@ -56,28 +56,30 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 
 ## 접속 네트워크 선택
 
-이더리움은 메인,테스트,사설망을 선택하여 접속할 수 있습니다.
+이더리움은 메인 네트워크,테스트 네트워크, 사설 네트워크를 선택하여 접속할 수 있습니다.
+[공식 이더리움 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)와
+[geth CLO (Command Line Options)](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)를 참고하세요.
 
-개발자용 테스트를 위해서 사설망 3) 번으로  바로 이동합니다.
+개발자용 테스트를 위해서는 '3)번 사설 네트워크'로 바로 이동 하세요.
 
-#### 1) Main Network 접속
+#### 1) 메인 네트워크 접속
 `$ geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
 `
 
-+ **--dirdata** :  데이터 폴더를 메인드라이브 쓰는 경우 블럭체인 용량이 커질수록 부담이 됩니다. data 폴더를 디폴트 드라이브(HOME\AppData\Ethash, HOME\AppData\Roaming\Ethereum) 가 아닌 다른 하드디스크 폴더로  변경합니다.
++ **--dirdata** :  데이터 폴더를 메인드라이브 쓰는 경우 블럭체인 용량이 커질수록 부담이 됩니다. data 폴더를 시스템 드라이브(예.HOME\AppData\Ethash, HOME\AppData\Roaming\Ethereum) 가 아닌 다른 하드디스크 폴더로 변경합니다.
 + **--fast** : 빠른 동기화 모드로 시작하여 CPU 사용량이 많은 Ethereum 네트워크의 전체 기록 처리를 피하면서 더 많은 데이터를 다운로드합니다.
 + **--cache=512** : 데이터베이스의 메모리 허용량을 512MB로 늘리면 특히 HDD 사용자의 동기화 시간이 크게 단축됩니다. 이 플래그는 선택 사항이며 512MB ~ 2GB 범위를 권장하지만 원하는대로 높이거나 낮게 설정할 수 있습니다.
 
-+ **console** : Geth의 내장 된 대화식 JavaScript 콘솔을 시작합니다 (Geth의 자체 관리 API는 물론 모든 공식 web3 메소드를 호출 할 수있는 콘솔 부속 명령을 통해). 이것 역시 선택 사항이며 생략하면 geth attach로 이미 실행중인 Geth 인스턴스에 연결할 수 있습니다.
++ **console** : Geth의 내장 된 대화식 JavaScript 콘솔을 시작합니다 (Geth의 자체 관리 API는 물론 모든 공식 web3 메소드도 호출 가능함). 이것 역시 선택 사항이며 생략하면 geth attach로 이미 실행중인 Geth 인스턴스에 연결할 수 있습니다.
 
-#### 2) Test Network 접속
+#### 2) 테스트 네트워크 접속
 `$ geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
 `
 
-+ **--testnet** : 개발자를 위해 실제 돈을 들이지 않고  Ethereum Contract를 생성하고 테스트 해보고 싶다면 테스트 옵션으로 주 네트워크와 완전히 동등한 환경의 테스트 네트워크에 합류 가능합니다.
++ **--testnet** : 개발자를 위해 실제 돈을 들이지 않고  Ethereum Contract를 생성하고 테스트 해보고 싶은 경우 사용합니다.
 
 
-#### 3) Private Network 접속
+#### 3) 사설 네트워크 접속
 
 **1단계: genesis파일을 이용하여 블록 생성**
 
@@ -85,7 +87,7 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 `
 
 + **init** : 별도의 사설망을 구축하기 위해 genesis.json파일을 만들어 생성가능 합니다.
-(이전 버전에서는 --genesis로 설정가능했으나 최신 버전에서는 init으로 변경되었습니다.)
+(이전 버전에서는 --genesis로 설정 가능 했으나 최신 버전에서는 init으로 변경 되었습니다.)
 
 > D:\Ethereum\storage\Private\genesis.json 예시
 ```
@@ -109,7 +111,7 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 }
 ```
 NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
-이는 아직 생성된 계정 생성 없기 때문입니다. (무시하고 계속 진행합니다.)
+이는 아직 생성된 계정이 없기 때문입니다. (무시하고 계속 진행합니다.)
 
 
 **2단계 : 이더리움을 구동하여 계정 생성** 
@@ -131,6 +133,7 @@ Passphrase :
 Repeat passphrase : 
 "0x0000000000000000000000000000000000000002"
 ```
+
 NOTICE : 생성된 계정은 D:\Ethereum\storage\Private\keystore 아래에 두개의 파일로 존재하게 됩니다.
 
 
@@ -139,14 +142,14 @@ NOTICE : 생성된 계정은 D:\Ethereum\storage\Private\keystore 아래에 두
 일단 2개의 계정이 정상적으로 생성되면, keystore 폴더를 제외한 모든 폴더와 파일을 삭제 합니다. 
 D:\Ethereum\storage\Private\geth 폴더와 D:\Ethereum\storage\Private\history 파일을 삭제합니다.
 
-주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우면 안됩니다. :)
+주의 : D:\Ethereum\storage\Private\keystore 폴더는 지우면 안됩니다. 
 
 
 **4단계 : 잔액이 있는 계정으로 블록을 재생성** 
 
 genesis.json 파일에 alloc 부분을 다음과 같이 수정합니다.
 
-> D:\Ethereum\storage\Private\genesis.json 수정된 예시 *(alloc 부분 변경)*
+> D:\Ethereum\storage\Private\genesis.json 수정된 예시 *(alloc 부분 수정)*
 ```
 {
   "config": {
@@ -183,6 +186,6 @@ $ geth --datadir "D:\Ethereum\storage\Private" console
 NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다. 
 
 
-[geth 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)
+## 사설 네트워크로 멀티노드 구성 
 
-[geth 커맨드 명령어](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+
