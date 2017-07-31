@@ -6,8 +6,7 @@
 
 ## 이더리움 클라이언트 설치 (Window의 경우)
 
-윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있습니다.
-아래는 go-ethereum 버전 v1.7.0 기준으로 작성되었습니다.
+윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있습니다.(go-ethereum 버전 v1.7.0 기준)
 
 다른 OS별 설치 가이드는 [여기](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)를 확인해주세요.
 
