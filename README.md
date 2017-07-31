@@ -1,21 +1,17 @@
 이더리움 실행환경 구축 (Windows)
 =============
 [소스 공식 사이트](github.com/ethereum/go-ethereum)
-
-| 종류  | 사양 |
-| ------------- | ------------- |
-| OS  | Window7 64bit  |
-| go-ethereum version  | v1.7.0 |
-| source path | D:\Ethereum\src |
-| data path | D:\Ethereum\storage\Main or Dev or Private |
-
-
-## 이더리움 인스톨 설치
-
 [OS별 설치 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 
+윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있다.
+| 종류  | 사양 |
+| ------------- |  ------------- |
+| OS  | Window7 64bit  |  
+| go-ethereum version  | v1.7.0 |  
+
+
 **1단계 : 관련 패키지 설치**
-윈도우의 경우,
+
 [https://chocolatey.org](chocolatey.org)에 접속하여 chocolatey를 설치하고
 choco명령을 이용해  관련된 패키지를 설치한다
 ```
@@ -24,7 +20,16 @@ $ choco install golang
 $ choco install mingw
 ```
 
-**2단계 : 환경변수 세팅**
+**2단계 : 이더리움 인스톨 및 환경변수 세팅**
+
+
+| path |  example |  설명 |
+| ------------- |  ------------- |
+| %USERPROFILE% | D:\Ethereum | 
+| source path | %USERPROFILE%\src | git에서 받은 소스 위치 | 
+| bin path | %USERPROFILE%\bin |컴파일된 샐행 파일 (geth, bootstrap ...)  |
+| data path | %USERPROFILE%\storage | 데이터 파일 (Main/Dev/Privata), 메인드라이브(C:)를 사용하지 않도록 변경 |
+
 ```
 // 설치 후 환경설정  
 $ set “GOPATH=%USERPROFILE%”
@@ -37,8 +42,8 @@ $ git clone https://github.com/ethereum/go-ethereum src\github.com\ethereum\go-e
 $ cd src\github.com\ethereum\go-ethereum
 $ go get –u –v golang.org/x/net/context
  ... 
- // compile
- $ go install –v ./...
+// compile
+$ go install –v ./...
 ```
 
 인스톨없이 바로 설치할 경우,  [https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 설치한다.
