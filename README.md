@@ -2,12 +2,17 @@
 =============
 [소스 공식 사이트](github.com/ethereum/go-ethereum)
 
-
+| 종류  | 사양 |
+| ------------- | ------------- |
+| OS  | Window7 64bit  |
+| go-ethereum version  | v1.7.0 |
+| source path | D:\Ethereum\src |
+| data path | D:\Ethereum\storage\[Main|Dev|Private] |
 
 ## 1. 실행 환경 구축
 [인스톨 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 
-[인스톨없이 바로 설치](geth.ethereum.org/downloads/)
+[인스톨없이 바로 설치할 경우,](geth.ethereum.org/downloads/)
 
 
 ## 2. 초기 접속 네트워크 선택
