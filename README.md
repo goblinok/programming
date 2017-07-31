@@ -48,7 +48,8 @@ $ go install –v ./...
 | bin path | D:\Ethereum\bin |컴파일된 실행 파일 (geth, bootstrap ...)  |
 | data path | D:\Ethereum\storage | 데이터 파일 (Main, Dev, Private 등으로 나누어 관리) |
 
-소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
+
+NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
 [https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.
 
 
