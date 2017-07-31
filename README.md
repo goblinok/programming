@@ -10,7 +10,7 @@
 [인스톨없이 바로 설치] (https://geth.ethereum.org/downloads/)
 
 
-##2. 초기 접속 네트워크 선택
+## 2. 초기 접속 네트워크 선택
 [geth 실행]  (https://github.com/ethereum/go-ethereum#running-geth)
 
 [geth 커맨드 명령어] (https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
