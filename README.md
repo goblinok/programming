@@ -6,18 +6,15 @@
 
 ## 1. 실행 환경 구축
 [인스톨 가이드] (https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
-
 [인스톨없이 바로 설치] (https://geth.ethereum.org/downloads/)
 
 
 ## 2. 초기 접속 네트워크 선택
 [geth 실행]  (https://github.com/ethereum/go-ethereum#running-geth)
-
 [geth 커맨드 명령어] (https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ### Main Network 접속
-`
-geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
+`geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
 `
 
 + 데이터 폴더를 메인드라이브 쓰는 경우 블럭체인 용량이 커질수록 부담이 됩니다. 
@@ -29,16 +26,17 @@ geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
 
 + Geth의 내장 된 대화식 JavaScript 콘솔을 시작합니다 (Geth의 자체 관리 API는 물론 모든 공식 web3 메소드를 호출 할 수있는 콘솔 부속 명령을 통해). 이것 역시 선택 사항이며 생략하면 geth attach로 이미 실행중인 Geth 인스턴스에 연결할 수 있습니다.
 
+
 ###  Test Network 접속
-“`
-geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
-“`
+`geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
+`
 
 + 개발자를 위해 실제 돈을 들이지 않고  Ethereum Contract를 생성하고 테스트 해보고 싶다면 (--testnet) 옵션으로주 네트워크와 완전히 동등한 환경의   테스트 네트워크에 합류가능합니다.
 
+
 ### Private Network 접속
-“`geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
-“`
+`geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
+`
 
 
 이더리움 실행환경 구축 
