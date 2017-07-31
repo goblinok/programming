@@ -54,7 +54,7 @@ $ go install –v ./...
 인스톨없이 바로 설치할 경우,  [https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 설치한다.
 
 ## 초기 접속 네트워크 선택
-[geth 실행](github.com/ethereum/go-ethereum#running-geth)
+[geth 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)
 
 [geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
