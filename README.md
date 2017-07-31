@@ -6,13 +6,11 @@
 
 ## 1. 실행 환경 구축
 [인스톨 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
-
 [인스톨없이 바로 설치](geth.ethereum.org/downloads/)
 
 
 ## 2. 초기 접속 네트워크 선택
 [geth 실행](github.com/ethereum/go-ethereum#running-geth)
-
 [geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ### Main Network 접속
@@ -30,7 +28,7 @@
 
 
 ###  Test Network 접속
-`geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
+`###geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
 `
 
 + 개발자를 위해 실제 돈을 들이지 않고  Ethereum Contract를 생성하고 테스트 해보고 싶다면 (--testnet) 옵션으로주 네트워크와 완전히 동등한 환경의   테스트 네트워크에 합류가능합니다.
