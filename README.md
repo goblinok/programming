@@ -1,8 +1,8 @@
 이더리움 실행환경 구축 
 =============
-[소스 공식 사이트](github.com/ethereum/go-ethereum)
+[소스 공식 사이트](https://github.com/ethereum/go-ethereum)
 
-[OS별 설치 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+[OS별 설치 가이드](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 
 
 ## 이더리움 클라이언트 설치 (Window의 경우)
@@ -17,7 +17,7 @@
 
 **1단계 : 관련 패키지 설치**
 
-[https://chocolatey.org](chocolatey.org)에 접속하여 chocolatey를 설치하고
+[https://chocolatey.org](https://chocolatey.org)에 접속하여 chocolatey를 설치하고
 choco명령을 이용해  관련된 패키지를 설치한다
 ```
 $ choco install git
@@ -56,7 +56,7 @@ $ go install –v ./...
 ## 초기 접속 네트워크 선택
 [geth 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)
 
-[geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+[geth 커맨드 명령어](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 이더리움 Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 네트워크중 하나를 선택하여  접속할 수 .
 개발자용 사설망 환경으로 테스트하기 위해서는 3) 번으로  바로 이동합니다.
@@ -179,10 +179,3 @@ $ geth --datadir "D:\Ethereum\storage\Private" console
 "0x0000000000000000000000000000000000000001"
 ```
 NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다. 
-
-
-
-
-
-이더리움 실행환경 구축 
--------------------
