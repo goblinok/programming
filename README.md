@@ -37,6 +37,7 @@ Main Network(메인), Test Network(테스트), Private Network(사설) 중 하�
 ##### 3) Private Network 접속
 `$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
 `
+D:\Ethereum\storage\Private\genesis.json 
 ```
 {
   "config": {
