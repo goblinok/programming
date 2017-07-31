@@ -46,7 +46,7 @@ Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 �
 + **init** : 별도의 사설망을 구축하기 위해 genesis.json파일을 만들어 생성가능하다
 (이전 버전에서는 --genesis로 설정가능했으나 최신 버전에서는 init으로 변경되었다.)
 
-D:\Ethereum\storage\Private\genesis.json 예시
+> D:\Ethereum\storage\Private\genesis.json 예시
 ```
 
 {
@@ -72,7 +72,7 @@ D:\Ethereum\storage\Private\genesis.json 예시
 참고: 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 이는 아직 계정생성이 되어 있지 않기 때문인데, 일단 무시해도 됩니다. 
 
 
-init는 console 명령과 함께 쓸 수 없으므로 genesis.json으로 생성한 노드에 접속하여
+> init는 console 명령과 함께 쓸 수 없으므로 genesis.json으로 생성한 노드에 접속하여
 계정을 두개 생성합니다. (console을 이미 사용중일 경우, 'attach'로 접속 가능 합니다.)
 ```
 
@@ -90,14 +90,13 @@ Repeat passphrase :
 ```
 
 
-일단 2개의 계정이 정상적으로 생성되면, 
+> 일단 2개의 계정이 정상적으로 생성되면, 
 D:\Ethereum\storage\Private\geth 폴더와 D:\Ethereum\storage\Private\history 파일을 삭제하고, 
 genesis.json 파일에 생성된 2개의 계정에 잔액을 채워서 다시 init을 합니다.
 (D:\Ethereum\storage\Private\keystore 폴더는 지우지 않습니다.)
 
-D:\Ethereum\storage\Private\genesis.json 수정된 예시 (alloc 부분 변경)
+> D:\Ethereum\storage\Private\genesis.json 수정된 예시 (alloc 부분 변경)
 ```
-
 {
   "config": {
         "chainId": 0,
@@ -119,15 +118,10 @@ D:\Ethereum\storage\Private\genesis.json 수정된 예시 (alloc 부분 변경)
   "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestamp"  : "0x00"
 }
-
-
-
 ```
 
-`$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
-`
-
 ```
+$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
 $ geth --datadir "D:\Ethereum\storage\Private" console
  > eth.accounts()
  > eth.coinbase
