@@ -2,9 +2,10 @@
 =============
 [소스 공식 사이트](github.com/ethereum/go-ethereum)
 
+[OS별 설치 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 
 
-## 실행 환경 (Window의 경우)
+## 이더리움 클라이언트 설치 (Window의 경우)
 
 윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있다.
 
@@ -12,8 +13,6 @@
 | ------------- |  ------------- |
 | OS  | Window7 64bit  |  
 | go-ethereum version  | v1.7.0 |  
-
-[OS별 설치 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 
 
 **1단계 : 관련 패키지 설치**
@@ -30,8 +29,8 @@ $ choco install mingw
 
 
 | 경로 |  예시 |  설명 |
-| ------------- |  ------------- |
-| %USERPROFILE% | D:\Ethereum | 
+| ------------- |  ------------- |  ------------- |
+| %USERPROFILE% | D:\Ethereum |  | 
 | source path | D:\Ethereum\src | git에서 받은 소스 위치 | 
 | bin path | D:\Ethereum\bin |컴파일된 샐행 파일 (geth, bootstrap ...)  |
 | data path | D:\Ethereum\storage | 데이터 파일 (Main/Dev/Privata), 메인드라이브(C:)를 사용하지 않도록 변경 |
@@ -56,6 +55,9 @@ $ go install –v ./...
 
 ## 초기 접속 네트워크 선택
 [geth 실행](github.com/ethereum/go-ethereum#running-geth)
+
+[geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+
 이더리움 Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 네트워크중 하나를 선택하여  접속할 수 .
 개발자용 사설망 환경으로 테스트하기 위해서는 3) 번으로  바로 이동합니다.
 
@@ -180,7 +182,7 @@ NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으�
 
 
 
-[geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+
 
 이더리움 실행환경 구축 
 -------------------
