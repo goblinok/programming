@@ -55,8 +55,8 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 
 ## 접속 네트워크 선택
 
-이더리움 Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 네트워크중 하나를 선택하여  접속할 수 .
-개발자용 사설망 환경으로 테스트하기 위해서는 3) 번으로  바로 이동합니다.
+이더리움은 메인,테스트,사설망을 선택하여 접속할 수 있습니다.
+개발자용 테스트를 위해서 사설망 3) 번으로  바로 이동합니다.
 
 #### 1) Main Network 접속
 `$ geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
