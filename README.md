@@ -7,7 +7,7 @@
 | OS  | Window7 64bit  |
 | go-ethereum version  | v1.7.0 |
 | source path | D:\Ethereum\src |
-| data path | D:\Ethereum\storage\[Main|Dev|Private] |
+| data path | D:\Ethereum\storage\Main( or Dev or Private) |
 
 ## 1. 실행 환경 구축
 [인스톨 가이드](github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
