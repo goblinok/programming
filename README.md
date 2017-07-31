@@ -192,8 +192,9 @@ NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으�
 
 ![screenshot](https://raw.githubusercontent.com/SeoulEM/programming/master/multinode_example.png) 
 
-> NODE1
-기존 genesis로 생성했던 계정을 그대로 마이너 노드 옵션을 적용하여 실행합니다. 
+> NODE1 (Miner)
+기존 genesis로 생성했던 계정을 그대로 마이너 노드 옵션을 적용하여 실행합니다.
+
 `
 $ geth --datadir "D:\Ethereum\storage\Private" --mine --minerthreads=1 
 `
@@ -208,6 +209,7 @@ NOTICE : 마이너는 --mine --minerthreads=1 geth CLO 옵션 대신 geth 콘솔
 
 
 > NODE2
+
 `
 $ geth --datadir "D:\Ethereum\temp\TestChain2" --rpc --rpcport "8542"  --port 3032 --nodiscover --ipcdisable  console
 `
@@ -215,6 +217,7 @@ $ geth --datadir "D:\Ethereum\temp\TestChain2" --rpc --rpcport "8542"  --port 30
                     HTTP-RPC와 WS-RPC는 기본 disable입니다.
 
 > NODE3
+
 `
 $ geth --datadir "D:\Ethereum\temp\TestChain3" --rpc --rpcport "8543"  --port 3033 --nodiscover --ipcdisable  console
 `
