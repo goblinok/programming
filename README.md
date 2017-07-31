@@ -37,7 +37,7 @@ Main Network(메인), Test Network(테스트), Private Network(사설) 중 하�
 ##### 3) Private Network 접속
 `$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
 `
-`
+```
 {
   "config": {
         "chainId": 0,
@@ -56,7 +56,7 @@ Main Network(메인), Test Network(테스트), Private Network(사설) 중 하�
   "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
   "timestamp"  : "0x00"
 }
-`
+```
 
 이더리움 실행환경 구축 
 -------------------
