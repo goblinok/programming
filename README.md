@@ -16,9 +16,9 @@
 [geth 커맨드 명령어] (https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
 ### Main Network 접속
-“`
+`
 geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
-“`
+`
 
 + 데이터 폴더를 메인드라이브 쓰는 경우 블럭체인 용량이 커질수록 부담이 됩니다. 
  (--datadir) data 폴더를 디폴트 드라이브(HOME\AppData\Ethash, HOME\AppData\Roaming\Ethereum) 가 아닌 다른 하드디스크 폴더로  변경합니다.
