@@ -84,8 +84,8 @@ NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바
 `$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
 `
 
-+ **init** : 별도의 사설망을 구축하기 위해 genesis.json파일을 만들어 생성가능하다
-(이전 버전에서는 --genesis로 설정가능했으나 최신 버전에서는 init으로 변경되었다.)
++ **init** : 별도의 사설망을 구축하기 위해 genesis.json파일을 만들어 생성가능 합니다.
+(이전 버전에서는 --genesis로 설정가능했으나 최신 버전에서는 init으로 변경되었습니다.)
 
 > D:\Ethereum\storage\Private\genesis.json 예시
 ```
