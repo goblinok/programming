@@ -2,24 +2,25 @@
 =============
 [소스 공식 사이트](https://github.com/ethereum/go-ethereum)
 
-[OS별 설치 가이드](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
 
 
 ## 이더리움 클라이언트 설치 (Window의 경우)
 
-윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있다.
+윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있습니다.
 
 | 종류  |  사양 |
 | ------------- |  ------------- |
 | OS  | Window7 64bit  |  
 | go-ethereum version  | v1.7.0 |  
 
->
+
+다른 OS별 설치 가이드는 [여기](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)를 확인해주세요.
+
 
 **1단계 : 관련 패키지 설치**
 
 [https://chocolatey.org](https://chocolatey.org)에 접속하여 chocolatey를 설치하고
-choco명령을 이용해  관련된 패키지를 설치한다
+choco명령을 이용해  관련된 패키지를 설치합니다.
 ```
 $ choco install git
 $ choco install golang
@@ -44,7 +45,7 @@ $ go get –u –v golang.org/x/net/context
 $ go install –v ./...
 ```
 
-다음과 같이 소스와 컴파일된 바이너리와 데이터 경로를 설정하면 관리가 편리하다.
+첨고 : 다음과 같이 소스와 컴파일된 바이너리와 데이터 경로를 설정하면 관리가 용이합니다.
 | 경로 |  예시 |  설명 |
 | ------------- |  ------------- |  ------------- |
 | %USERPROFILE% | D:\Ethereum |  | 
@@ -52,13 +53,11 @@ $ go install –v ./...
 | bin path | D:\Ethereum\bin |컴파일된 샐행 파일 (geth, bootstrap ...)  |
 | data path | D:\Ethereum\storage | 데이터 파일 (Main/Dev/Privata), 메인드라이브(C:)를 사용하지 않도록 변경 |
 
-소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, [https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 설치한다.
+소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
+[https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.
 
->
-## 초기 접속 네트워크 선택
-[geth 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)
 
-[geth 커맨드 명령어](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+## 접속 네트워크 선택
 
 이더리움 Main Network(메인), Test Network(테스트), Private Network(사설) 3가지 네트워크중 하나를 선택하여  접속할 수 .
 개발자용 사설망 환경으로 테스트하기 위해서는 3) 번으로  바로 이동합니다.
@@ -181,3 +180,8 @@ $ geth --datadir "D:\Ethereum\storage\Private" console
 "0x0000000000000000000000000000000000000001"
 ```
 NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다. 
+
+
+[geth 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)
+
+[geth 커맨드 명령어](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
