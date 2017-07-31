@@ -40,9 +40,18 @@ $ go install –v ./...
 ```
 
 첨고 : 다음과 같이 소스와 컴파일된 바이너리와 데이터 경로를 설정하면 관리가 용이합니다.
-| 경로 |  예시 |  설명  |
+
+| 종류  | 사양 |
+| ------------- | ------------- |
+| OS  | Window7 64bit  |
+
+
+| 경로 |  예시  |  설명  |
 | ------------- | ------------- | ------------- |
 | %USERPROFILE% | D:\Ethereum |    | 
+| source path | D:\Ethereum\src | git에서 받은 소스 위치 | 
+| bin path | D:\Ethereum\bin |컴파일된 샐행 파일 (geth, bootstrap ...)  |
+| data path | D:\Ethereum\storage | 데이터 파일 (Main, Dev, Private 등으로 나누어 관리) |
 
 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
 [https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.
