@@ -13,7 +13,7 @@
 [geth 실행](github.com/ethereum/go-ethereum#running-geth)
 [geth 커맨드 명령어](github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
 
-### Main Network 접속
+##### Main Network 접속
 `$ geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
 `
 
@@ -24,14 +24,14 @@
 + console : Geth의 내장 된 대화식 JavaScript 콘솔을 시작합니다 (Geth의 자체 관리 API는 물론 모든 공식 web3 메소드를 호출 할 수있는 콘솔 부속 명령을 통해). 이것 역시 선택 사항이며 생략하면 geth attach로 이미 실행중인 Geth 인스턴스에 연결할 수 있습니다.
 
 
-###  Test Network 접속
+#####  Test Network 접속
 `$ geth --datadir="D:\Ethereum\storage\Dev"  --testnet --fast --cache=512 console
 `
 
 + --testnet : 개발자를 위해 실제 돈을 들이지 않고  Ethereum Contract를 생성하고 테스트 해보고 싶다면 테스트 옵션으로 주 네트워크와 완전히 동등한 환경의 테스트 네트워크에 합류가능합니다.
 
 
-### Private Network 접속
+##### Private Network 접속
 `$ geth --datadir "D:\Ethereum\storage\Private" init  D:\Ethereum\storage\Private\genesis.json 
 `
 
