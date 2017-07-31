@@ -1,18 +1,13 @@
 이더리움 실행환경 구축 
 =============
-[소스 공식 사이트](https://github.com/ethereum/go-ethereum)
+[공식 사이트](https://github.com/ethereum/go-ethereum)
 
 
 
 ## 이더리움 클라이언트 설치 (Window의 경우)
 
 윈도우의 경우, 다음과 같이 소스를 다운받아 컴파일후 실행할 수 있습니다.
-
-| 종류  |  사양 |
-| ------------- |  ------------- |
-| OS  | Window7 64bit  |  
-| go-ethereum version  | v1.7.0 |  
-
+아래는 go-ethereum 버전 v1.7.0 기준으로 작성되었습니다.
 
 다른 OS별 설치 가이드는 [여기](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)를 확인해주세요.
 
