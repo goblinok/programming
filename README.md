@@ -131,6 +131,8 @@ Passphrase :
 Repeat passphrase : 
 "0x0000000000000000000000000000000000000002"
 ```
+NOTICE : 생성된 계정은 D:\Ethereum\storage\Private\keystore 아래에 두개의 파일로 존재하게 됩니다.
+
 
 **3단계 : 기존 생성된 사설 블록 삭제**
 
