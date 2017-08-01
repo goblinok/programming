@@ -40,7 +40,7 @@ $ go install –v ./...
 ```
 
 
-참고 : 다음과 같이 소스와 컴파일된 바이너리와 데이터 경로를 설정하면 관리가 용이합니다.
+다음과 같이 소스와 컴파일된 바이너리와 데이터 경로를 설정하면 관리가 용이합니다.
 
 | 경로 |  예시  |  설명  |
 | ------------- | ------------- | ------------- |
@@ -51,16 +51,16 @@ $ go install –v ./...
 
 
 *NOTICE : 소스를 직접 인스톨하지 않고 release된 바이너리로 바로 설치할 경우, 
-[https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.*
+[https://geth.ethereum.org/downloads](geth.ethereum.org/downloads/)에 접속하여 바로 설치 가능합니다.*  
 
 
 ## 접속 네트워크 선택
 
 이더리움은 메인 네트워크,테스트 네트워크, 사설 네트워크를 선택하여 접속할 수 있습니다.
-[공식 이더리움 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)와
+[공식 이더리움 실행 가이드](https://github.com/ethereum/go-ethereum#running-geth)와  
 [geth CLO (Command Line Options)](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)를 참고하세요.
 
-개발자용 테스트를 위해서는 '3)번 사설 네트워크'로 바로 이동 하세요.
+개발자용 테스트를 위해서는 '3)번 사설 네트워크'로 바로 이동 하세요.  
 
 #### 1) 메인 네트워크 접속
 `$ geth --datadir="D:\Ethereum\storage\Main" --fast --cache=512 console
@@ -111,7 +111,7 @@ $ go install –v ./...
 }
 ```
 *NOTICE : 사설명이 성공적으로 생성되면 'WARN : No etherbase set and no accounts found as default' 경고가 발생하는데, 
-이는 아직 생성된 계정이 없기 때문입니다. (무시하고 계속 진행합니다.)*
+이는 아직 생성된 계정이 없기 때문입니다. (무시하고 계속 진행합니다.)*   
 
 
 **2단계 : 이더리움을 구동하여 계정 생성** 
@@ -183,12 +183,13 @@ $ geth --datadir "D:\Ethereum\storage\Private" console
  > eth.coinbase
 "0x0000000000000000000000000000000000000001"
 ```
-*NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다.*
+*NOTICE : 이때 coinbase(etherbase는) 최초 생성된 계정으로 자동으로 할당됩니다.*  
 
 
 ## 사설 네트워크로 멀티노드 구성 
 
-한대의 PC에서 3개의 노드를 동시에 띄울 경우, 다음과 같이 테스트 할 수 있습니다. 
+멀티노드를 구성할 경우 --networkid는 동일하게 해야 한다
+한대의 PC를 통해 테스트할 경우 --datadir --port --rpc 를 달리하면 여러 노드를 띄울수 있다.   
 
 ![screenshot](https://raw.githubusercontent.com/SeoulEM/programming/master/multinode_example.png) 
 
@@ -196,15 +197,16 @@ $ geth --datadir "D:\Ethereum\storage\Private" console
 기존 genesis로 생성했던 계정을 그대로 마이너 노드 옵션을 적용하여 실행합니다.
 
 `
-$ geth --datadir "D:\Ethereum\storage\Private" --mine --minerthreads=1 
+$ geth --datadir "D:\Ethereum\storage\Private" --mine --minerthreads=1 console
 `
 + **--mine** : 마이너를 동작시킵니다. 
-+ **minerthreads=1** : 마이너의 코어수 입니다.
-*TIP : 일단 마이닝이 시작되면 DAG 기본 폴더인 %APPDATA%\Ethash 에 파일이 생성되는데, 
-시스템 디스크가 아닌 다른 하드디스크로 변경하기 위해 윈도우에서도 심볼릭 링크를 적용할 수 있다.
- (mklink /D C:\Users\user\AppData\Ethash D:\Ethereum\storage\Ethash)
-*NOTICE : 마이너는 --mine --minerthreads=1 geth CLO 옵션 대신 geth 콘솔에서 mine.start(1)라고 입력해도 됩니다.
---etherbase는 별도 추가하지 않으면 coinbase인 최초 생성 계정으로 설정됩니다.*
++ **--minerthreads=1** : 마이너의 코어수 입니다.  
+
+*TIP : 일단 마이닝이 시작되면 DAG 기본 폴더인 %APPDATA%\Ethash 에 파일이 생성되는데, *
+*시스템 디스크가 아닌 다른 하드디스크로 변경하기 위해 윈도우에서도 심볼릭 링크를 적용할 수 있다.*  
+*(mklink /D C:\Users\user\AppData\Ethash D:\Ethereum\storage\Ethash)*  
+*NOTICE : 마이너는 --mine --minerthreads=1 geth CLO 옵션 대신 geth 콘솔에서 mine.start(1)라고 입력해도 됩니다.*
+*--etherbase는 별도 추가하지 않으면 coinbase인 최초 생성 계정으로 설정됩니다.*
 
 
 > **NODE2** : datadir, rpc port, geth 포트를 변경하여 실행합니다.
